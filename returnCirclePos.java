@@ -9,6 +9,7 @@
  *     }
  * }
  */
+ //https://leetcode-cn.com/problems/c32eOV/submissions/
  // 链表头到环入口的距离=相遇点到环入口的距离+（k-1）圈数环长度
 //low从链表头出发，fast从相遇点出发，以相同速度遍历最终一定在入口处相遇
 public class Solution {
