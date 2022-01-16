@@ -91,3 +91,5 @@ class Solution {
         return len == Integer.MAX_VALUE? "":s.substring(start,start + len);
     }
 }
+
+//滑动窗口+ 字典 题解https://leetcode-cn.com/problems/permutation-in-string/solution/zhu-shi-chao-xiang-xi-de-hua-dong-chuang-rc7d/
