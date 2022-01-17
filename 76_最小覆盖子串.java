@@ -85,7 +85,7 @@ class Solution {
         System.out.printf("charsFound.size = %d\n",charsFound.size());
          // 输出 key 和 value
         for (Character j : charsFound.keySet()) {
-            System.out.println("key: " + j+ " value: " + charsFound.get(i));
+            System.out.println("key: " + j+ " value: " + charsFound.get(j));
         }
         */
         return len == Integer.MAX_VALUE? "":s.substring(start,start + len);
