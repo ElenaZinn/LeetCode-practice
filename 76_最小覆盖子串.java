@@ -36,15 +36,15 @@ class Solution {
     //hint: sliding window
     public String minWindow(String s, String t) {
         int i =0, left = 0,start = 0,len = Integer.MAX_VALUE;
-        int valid = 0;
+        int isValid = 0;
 
         //out of bounds
 
-        HashMap<Character, Integer> needs = new HashMap<>();
-        HashMap<Character, Integer> windows = new HashMap<>();
+        HashMap<Character, Integer> charsToMatch = new HashMap<>();
+        HashMap<Character, Integer> charsFound = new HashMap<>();
         
         for (i=0;i<t.length();i++){
-            needs.put(t.charAt(i), needs.getOrDefault(t.charAt(i),0) +1);
+            charsToMatch.put(t.charAt(i), charsToMatch.getOrDefault(t.charAt(i),0) +1);
             
         }
 
@@ -54,15 +54,15 @@ class Solution {
             
             char c = s.charAt(i);
            
-            if (needs.containsKey(c)) {
-                windows.put(c,windows.getOrDefault(c,0) + 1);
-                 if (windows.get(c).equals(needs.get(c))) {
-                    valid++;
+            if (charsToMatch.containsKey(c)) {
+                charsFound.put(c,charsFound.getOrDefault(c,0) + 1);
+                 if (charsFound.get(c).equals(charsToMatch.get(c))) {
+                    isValid++;
                 }
             
             }
             //update min length
-            while (valid == needs.size()) {
+            while (isValid == charsToMatch.size()) {
                 if (i-left + 1 <len) {
                     start = left;
                     len = i- left + 1;
@@ -70,11 +70,11 @@ class Solution {
                 
                 char d = s.charAt(left ++ );
 
-                if (windows.containsKey(d) ) {
-                    if (windows.get(d).equals(needs.get(d))) {
-                        valid--;
+                if (charsFound.containsKey(d) ) {
+                    if (charsFound.get(d).equals(charsToMatch.get(d))) {
+                        isValid--;
                     }
-                    windows.put(d, windows.get(d) - 1);
+                    charsFound.put(d, charsFound.get(d) - 1);
                 }
             }
 
@@ -82,10 +82,10 @@ class Solution {
             
         }
         /** 
-        System.out.printf("windows.size = %d\n",windows.size());
+        System.out.printf("charsFound.size = %d\n",charsFound.size());
          // 输出 key 和 value
-        for (Character j : windows.keySet()) {
-            System.out.println("key: " + j+ " value: " + windows.get(i));
+        for (Character j : charsFound.keySet()) {
+            System.out.println("key: " + j+ " value: " + charsFound.get(i));
         }
         */
         return len == Integer.MAX_VALUE? "":s.substring(start,start + len);
