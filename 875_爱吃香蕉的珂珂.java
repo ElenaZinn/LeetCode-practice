@@ -1,8 +1,7 @@
 //https://leetcode-cn.com/problems/koko-eating-bananas/
 //hint: 二分查找
 /**
-思路
-有 x,f(x)单减函数,target = hour
+转化成问题：有 x,f(x)单减函数,target = hour
 若吃香蕉的速度为x根/小时，则需要f(x)小时吃完所有香蕉, 找到令f(x)<= target的最小x
  */
 /**
