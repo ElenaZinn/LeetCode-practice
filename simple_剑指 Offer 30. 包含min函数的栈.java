@@ -7,7 +7,7 @@ class MinStack {
     public MinStack() {
 
     }
-    
+   
     public void push(int x) {
         //stack 正常放入
         stack.push(x);

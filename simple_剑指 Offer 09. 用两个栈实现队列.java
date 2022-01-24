@@ -6,7 +6,7 @@ class CQueue {
     public CQueue() {
 
     }
-    
+   
     public void appendTail(int value) {
         stack1.push(value);
     }
