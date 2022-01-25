@@ -1,5 +1,6 @@
 //https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
 //hint:快慢指针
+
 /**
 example
 nums = [0,0,1,1,1,2,2,3,3,4]

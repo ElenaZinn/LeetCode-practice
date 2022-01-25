@@ -1,5 +1,6 @@
 //https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
 //example, same as T26 https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {

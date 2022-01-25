@@ -1,4 +1,5 @@
 //https://leetcode-cn.com/problems/remove-element/submissions/
+
 //similar with https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
 class Solution {
     public int removeElement(int[] nums, int val) {

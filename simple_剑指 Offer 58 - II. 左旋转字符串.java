@@ -1,4 +1,5 @@
 //https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/
+
 class Solution {
     public String reverseLeftWords(String s, int n) {
         /**

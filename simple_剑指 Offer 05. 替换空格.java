@@ -1,4 +1,5 @@
 //https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/submissions/
+
 class Solution {
     public String replaceSpace(String s) {
         StringBuilder res = new StringBuilder();
