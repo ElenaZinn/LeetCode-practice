@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+<<<<<<< HEAD
 /**
 nums = [5,7,7,8,8,10], target = 8
 left_bound:
@@ -12,6 +13,9 @@ Mid = 4, nums[4] = target = 8, left = mid +1 = 5 =right
 Mid = 5, nums[5] = target = 8, left = mis +1 = 6>right, jump out while loop
 Return right = 5
 */
+=======
+
+>>>>>>> 381f12f61df2f43c56c3f7d8632126f20c2e7c68
 class Solution {
     public int[] searchRange(int[] nums, int target) {
        return new int[]{left_bound(nums,target),right_bound(nums,target)};
