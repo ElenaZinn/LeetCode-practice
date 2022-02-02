@@ -1,4 +1,5 @@
 //https://leetcode-cn.com/problems/lru-cache/
+
 class LRUCache {
     int cap;
     LinkedHashMap<Integer,Integer> cache = new LinkedHashMap<>();
