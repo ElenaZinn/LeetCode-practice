@@ -15,6 +15,9 @@
  *   1 --> 2-->3-->4-->5-->6-->null
  * 【output】
  * head      last    successor
+ *   1 -->2<--3         4     -->5-->6->null
+ *     <-
+ * head      last    successor
  *   1 <--2<--3         4     -->5-->6->null
  *     ---------------->
  */
