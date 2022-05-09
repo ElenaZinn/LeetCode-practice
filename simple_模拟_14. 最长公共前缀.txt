@@ -1,0 +1,84 @@
+//https://leetcode.cn/problems/longest-common-prefix/
+
+class Solution {
+    /**
+    有错/(ㄒoㄒ)/~~
+    
+    public String longestCommonPrefix_self(String[] strs) {
+        String res = "";
+        //0. 判断越界情况strs长度小于2
+        if(strs.length==0) {
+            return res;
+        }else if(strs.length==1){
+            return strs[0];
+        }
+        //1. 长度等于2，两两相比，最终前缀的长度不可能长于最前两个的前缀长,所以先获取最长前缀
+        int k=1;
+        String num1 = strs[0].length()==0  ? "" : strs[0].substring(0,k);
+        String num2 = strs[1].length()==0? "" : strs[1].substring(0,k);
+        if(!num1.equals(num2)) { //前两个没有公共前缀
+            return res;
+        }
+        int index_1 = 0;
+        while(strs[0].length()>=k+1 &&strs[1].length()>=k+1 && num1.equals(num2)) { //前两个有公共前缀
+            index_1 = ++k;
+            num1 = strs[0].substring(0,index_1);
+            num2 = strs[1].substring(0,index_1);
+        }
+        System.out.println("k = " + k);
+        if(index_1-1 < 0) { //两个长度不等
+            res =(strs[0].length()==0 && strs[1].length()==0)? "" :strs[0].substring(0,k );
+        }else{ //两个长度相等
+            res =(strs[0].length()==0 && strs[1].length()==0)? "" :strs[0].substring(0,index_1-1 );
+        }
+       
+        System.out.println("longest res = " + res + " k=" +k);
+        //2. 长度大于3，两两相比,值不相等，缩小前缀范围
+        if(strs.length >=3) {
+                for(int j=2;j < res.length();j++) {
+                if(k>strs[j].length()) {  //前缀值超过了strs[i]
+                    while(k>strs[j].length()){
+                        k--;
+                    }
+                }
+                String num3 = strs[j].substring(0,k);
+                System.out.println("num3 = " + num3 + " res = " + res);
+                if(!res.equals(num3)) { 
+                    while(!res.equals(num3) && k>=0) {//缩小前缀范围
+                        int index = k--;
+                        res = strs[0].substring(0,index);
+                        num3 = strs[j].substring(0,index);
+                        System.out.println("---------res = " + res + " ---------num3 = " + num3);
+                        if(k==0) { //一个前缀都没有了
+                            return "";
+                        } 
+                    }
+                }   
+            } 
+        }
+        
+        return res;   
+    }
+    */
+    public String longestCommonPrefix(String[] strs) {
+        if(strs==null || strs.length==0) {
+            return "";
+        }
+        String prefix = strs[0];
+        for(int i=0;i<strs.length;i++) {
+            prefix = longestCommonPrefix(prefix, strs[i]);
+            if(prefix.length()==0) {
+                break;
+            }
+        }
+        return prefix;
+    }
+    public String longestCommonPrefix(String str1, String str2) {
+        int len = Math.min(str1.length(),str2.length());
+        int index = 0;
+        while(index < len && str1.charAt(index) == str2.charAt(index) ) {
+            index++;
+        }
+        return str1.substring(0,index);
+    }
+}
