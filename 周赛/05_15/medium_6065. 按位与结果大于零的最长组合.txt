@@ -1,0 +1,42 @@
+//https://leetcode.cn/contest/weekly-contest-293/problems/largest-combination-with-bitwise-and-greater-than-zero/
+//[13,44,58,17,23,13,87,79,91,47,86,90,4,93,18,75,29,66,43,60,19,3,28] 超时了
+class Solution {
+    List<List<Integer>> res = new LinkedList<>();
+    int maxLen =0, maxSum = 0;
+    public int largestCombination(int[] candidates) {
+        //获取数字的组合
+       
+        LinkedList<Integer> group = new LinkedList<>();
+        backTrace(candidates,group, 0);
+        // System.out.println(res);
+        // System.out.println(maxLen);
+        return maxLen;
+    }
+    public void backTrace(int[] candidates,LinkedList<Integer> group, int start) {
+        System.out.print(group);
+        if(group.size()!=0) {
+            int sum =group.get(0);
+            for(int k=1;k<group.size();k++) {
+                sum   =  sum & group.get(k);
+            }
+            if (sum >0 ) {
+                maxLen = Math.max(maxLen, group.size());
+            }
+//             System.out.print("\tsum = " + sum );
+//             maxSum = Math.max(sum,maxSum);
+//             System.out.print("\tmaxSum = " + maxSum );
+//             maxLen = maxSum == sum ?  Math.max(maxLen,group.size() ) : maxLen;
+           
+            System.out.print( " maxLen = " +maxLen + "\n");
+        }
+        
+        // System.out.println(maxLen);
+        res.add(new LinkedList(group));
+        
+        for(int i=start;i<candidates.length;i++) {
+            group.add(candidates[i]);
+            backTrace(candidates, group, i+1);
+            group.removeLast();
+        }
+    }
+}

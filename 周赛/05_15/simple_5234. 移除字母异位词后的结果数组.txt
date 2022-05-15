@@ -1,0 +1,45 @@
+//https://leetcode.cn/contest/weekly-contest-293/problems/find-resultant-array-after-removing-anagrams/
+/**
+没有写出来呀
+*/
+class Solution {
+    public List<String> removeAnagrams(String[] words) {
+        List<String> res = new ArrayList<String>();
+        res.add(words[0]);
+        
+        HashMap<Character, Integer> map = new HashMap<>();  //character, number
+        // HashMap< HashMap<Character, Integer>, Integer> store = new HashMap<>(); //combine, total num
+        if(words.length ==0) {
+            return res;
+        }
+        String test = words[0];
+        for(int i=0;i<test.length();i++) {
+            char c = test.charAt(i);
+            map.put(c, map.getOrDefault(c,0)+1);
+        }
+        for(int j=1;j<words.length;j++) {
+            String word = words[j];
+            HashMap<Character, Integer> tmp = new HashMap<>();  //character, number
+            for(int i=0;i<word.length();i++) {
+                char c = word.charAt(i);
+                tmp.put(c, map.getOrDefault(c,0)+1);s
+            }
+            for (Character key:map.keySet()) {
+                if(tmp.containsKey(key) && tmp.get(key) == map.get(key)) {
+                }else{
+                    res.add(word);
+                    map = tmp;
+                }
+            }
+            
+        }
+        for(String word: words) {
+            // HashMap<Character, Integer> map = new HashMap<>();//character, number
+            for(int i=0;i<word.length();i++) {
+                char c = word.charAt(i);
+                map.put(c, map.getOrDefault(c,0)+1);
+            }
+        }
+        return res;
+    }
+}

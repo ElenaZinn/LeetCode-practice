@@ -1,4 +1,4 @@
-//周赛，题号5299
+//https://leetcode.cn/problems/find-the-k-beauty-of-a-number/
 class Solution {
     public int divisorSubstrings(int num, int k) {
         int count = 0;

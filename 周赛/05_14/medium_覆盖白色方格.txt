@@ -1,0 +1,51 @@
+/**
+[[1,1000000000]]
+1000000000 超出内存限制
+*/
+class Solution {
+    public int maximumWhiteTiles(int[][] tiles, int carpetLen) {
+         int len = 0;
+         for(int i=0;i<tiles.length;i++) {
+           len = Math.max(len, tiles[i][1]);
+            
+        }
+        
+        int[] bi = new int[len];
+        Arrays.fill(bi,0);
+        
+        int white_count = 0;
+        for(int i=0;i<tiles.length;i++) {
+        
+            for(int k=tiles[i][0]-1;k<tiles[i][1];k++) {
+                bi[k] =1;   //白色格子值为1
+                white_count++;
+            }
+            
+        }
+//         for(int i=0;i<bi.length;i++) {
+//             System.out.print("bi[" +  i + "]=" +  bi[i] + "\t");
+            
+//         }
+         // System.out.print(white_count);
+      
+        
+        //所有砖块的长度都小于毯子的长度
+        int max =0, sum = 0;
+        int[] prefixSum = new int[bi.length+1];
+        prefixSum[0] = 0;
+        for(int j=0;j<bi.length;j++) {
+            prefixSum[j+1] = prefixSum[j] + bi[j];
+        }
+        if(carpetLen > bi.length) {
+            return white_count;
+        }
+        for(int i=0; i< bi.length-carpetLen+1; i++) {
+            int diff = prefixSum[i+carpetLen] - prefixSum[i];
+            max  = Math.max(diff,max);
+            
+        }
+        
+        return max;
+        
+    }
+}

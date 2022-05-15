@@ -1,0 +1,22 @@
+//https://leetcode.cn/contest/weekly-contest-293/problems/maximum-consecutive-floors-without-special-floors/
+class Solution {
+    public int maxConsecutive(int bottom, int top, int[] special) {
+        Arrays.sort(special);
+        int len = special.length;
+        int[] interval = new int[len+1];
+        interval[0] = special[0]-bottom;
+        int max = interval[0];
+        for(int i=1;i<len;i++) { //变成差分数组了
+            interval[i] = special[i]-special[i-1]-1;
+            max = Math.max(interval[i],max);
+            
+        }
+        interval[len] = top - special[len-1];
+        for(int i=0;i<interval.length;i++) {
+            System.out.print(interval[i] + "\t");
+        }
+        max = Math.max( interval[len],max);
+        return max;
+        
+    }
+}
