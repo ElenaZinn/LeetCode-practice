@@ -1,5 +1,6 @@
+ //https://leetcode-cn.com/problems/range-sum-query-2d-immutable/
 class NumMatrix {
-  //https://leetcode-cn.com/problems/range-sum-query-2d-immutable/
+ 
     private int[][] preSum;
     public NumMatrix(int[][] matrix) {
 

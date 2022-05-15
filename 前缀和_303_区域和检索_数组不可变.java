@@ -1,5 +1,6 @@
+//https://leetcode-cn.com/problems/range-sum-query-immutable/
 class NumArray {
-    //https://leetcode-cn.com/problems/range-sum-query-immutable/
+    
     //优化思路：使用一个数组记录前缀和，要求的部分和即两个前缀和做减法
     //nums = [0,1,2,3,4], preSum = [0,0,1,3,6,10], sumRange(1,3) = preSum[5]- preSum[1]
     //preSum[0] = 0 便于计算

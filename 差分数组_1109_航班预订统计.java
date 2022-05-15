@@ -1,5 +1,6 @@
+ //https://leetcode-cn.com/problems/corporate-flight-bookings/
 class Solution {
-  //地址：https://leetcode-cn.com/problems/corporate-flight-bookings/
+ 
     //注意编号从1开始
     public int[] corpFlightBookings(int[][] bookings, int n) {
         int[] nums = new int[n];
